@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect , useState} from 'react'
 import { useSelector , useDispatch } from 'react-redux'
 import noteData from "../mock/mockNotes"
 import { addNote } from '../Slices/Notes'
@@ -6,11 +6,13 @@ import { addNote } from '../Slices/Notes'
 const Notes = () => {
 
   const dispatch = useDispatch()
-  const notes = useSelector((state) => state.notes)
+  const noteRedux = useSelector((state) => state.notes)
   const auth = useSelector((state) => state.auth)
 
-  console.log(notes , ' notes')
+
+  console.log(noteRedux.notes, ' noteRedux')
   console.log(auth  , ' auth')
+  
 
 // const getNotes = async () => {
 //   axios.get(`api url here${username}`)
@@ -22,11 +24,13 @@ const Notes = () => {
 //   })
 // }
 
+
 useEffect(()=> {
 if (auth.authState === true) {
   const userNotes = noteData.filter((i) => i.username === auth.username);
-  Promise.resolve(userNotes)
-  console.log(userNotes)
+  console.log(userNotes , 'userNotes')
+  console.log(JSON.stringify(userNotes) , 'stringyfy')
+  //this adds notes from a api call to the redux to set a state
   dispatch(addNote(userNotes))
 }
 } , [])
@@ -35,10 +39,12 @@ if (auth.authState === true) {
   return (
     
     <div>
-      {/* {notes && notes?.map((i) => {
+    {noteRedux.notes && noteRedux.notes.map((i , idx) =>{
       return (
-      <div>{i.content}</div>)
-      })} */}
+      <div key={idx}>{i.content}</div>
+      )
+    })}
+    
     </div>
   )
 }

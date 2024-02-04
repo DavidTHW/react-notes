@@ -14,7 +14,7 @@ import { createSlice } from '@reduxjs/toolkit'
 	// }
 
 const initialState = {
-    notes : []
+    notes : ''
 }
 
 const Notes = createSlice({
@@ -22,7 +22,7 @@ const Notes = createSlice({
   initialState,
   reducers: {
       addNote : (state,action) => {
-          state.notes.push(action.payload)
+          state.notes = action.payload
       },
   }
 });

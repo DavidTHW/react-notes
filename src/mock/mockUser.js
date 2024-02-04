@@ -1,7 +1,7 @@
 const mockUser = [
 	{
-	"username": "luke.skywalker@resistence.com",
-	"password": "password123"
+	    "username": "luke.skywalker@resistence.com",
+	    "password": "password123"
 	},
 	{
 		"username": "darth.vader@empire.com",

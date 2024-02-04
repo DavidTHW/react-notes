@@ -5,7 +5,7 @@ const PrivateRoutes = () => {
     const location = useLocation();
     const auth = useSelector((state) => state.auth.authState)
     if (auth === null) {
-        return null
+        return Navigate("/")
     }
     return auth ? <Outlet/> : <Navigate to ="/" replace state={{ from : location }} />
      
