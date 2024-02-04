@@ -19,13 +19,23 @@ start the project using `npm start`
 
 ## Requirements
 - As a user, When I login with the correct credential, I should be able to access my personal notes.
+  can refer to user list from mocks (users)
 - As a user, When I login with the wrong credential, I should receive a message saying "invalid username/password"
+  working
 - As a user, I should not be able to access my personal notes without validating my credential.
-- As a user, I want to be able to add a note in my personal note.
+  working
+- As a user, I want to be able to add a note in my personal note
+  works with redux
 - As a user, I want to be able to delete a note in my personal note.
+  works with redux
 - As a user, I want to be able to view a note details in my personal note.
+  can click the show details button
 - As a note, I should have a title that is shown in the user's personal notes
+  title is show, click show details to see the detail info
 - As a note, I should have a description that is shown in the detail view.
+  the content is shown in the detail view
+
+  done with redux-toolkit , react-router-6 in functional components, nanoid to generate random ids (for delete and add post)
 
 ## Submission
 go to your private repo settings and add the reviewers as the collaborators
