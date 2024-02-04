@@ -26,15 +26,12 @@ const Login = () => {
     //just making a mock response to simulate logged in state by getting a 'response' , ideally we should also use a unique id instead of username
     if (username && password) {
      const found = data.find((user) => user.username === username && user.password === password)
-    //  Promise.resolve(found)
-     console.log(found)
      if (found) {
       //  dispatch(authState(true))
        //no token here, just pass true
        localStorage.setItem('userToken' , JSON.stringify({'auth' : true , 'username' : username}))
-      //  console.log(JSON.parse(localStorage.getItem('userToken')))
     } else {
-      // dispatch(authState(false))
+      dispatch(authState(false))
     }
     setSuccess(true)
     } else {
