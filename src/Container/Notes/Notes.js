@@ -6,7 +6,7 @@ import { addNote , postNotes , deleteNotes} from '../../Slices/NotesSlice'
 import { nanoid } from 'nanoid'
 import './Notes.css'
 
-// const NotesList = lazy(()=> import('./NotesList'))
+const NotesList = lazy(()=> import('./NotesList'))
 
 const Notes = () => {
 
@@ -16,6 +16,7 @@ const Notes = () => {
   const auth = useSelector((state) => state.auth)
   const [content , setContent] = useState('')
   const [title , setTitle] = useState('')
+  const [show, setShow] = useState(false)
 
 const handleAddNotes = () => {
   // add post api here for full code
@@ -51,22 +52,13 @@ if (auth.authState === true) {
   return (
     
     <div>
-    {noteRedux?.notes?.length > 0 ? (noteRedux && noteRedux?.notes?.map((i , idx) =>{
-      return (
-      <div key={idx} className='note'>
-        <h2>Title :</h2>
-        <div>{i.title}</div>
-        <h2>Content :</h2>
-        <div>{i.content}</div>
-        <button onClick={()=> handleDeleteNotes(i.id)}>delete note</button>
-      </div> 
-      )
-    })) : (<div>no notes found , add your notes</div>)
-  }
-
-  {/* <Suspense fallback={<>...loading</>}>
-    <NotesList/>
-  </Suspense> */}
+     <div>
+    {noteRedux?.notes?.length > 0 ? 
+      <Suspense fallback={<>...loading</>}> 
+      <NotesList note={noteRedux} handleDeleteNotes={handleDeleteNotes}/>
+      </Suspense>
+     : (<div>no notes found , add your notes</div>)}
+    </div> 
 
     <div>
     <h2>Add Note</h2>

@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+// {id : 6 , 'username' : 'obi.wan1@jedicouncil.com' , 'title' : 'that one time....', 'content' : 'I have the high ground'}
 const initialState = {
     notes : []
 }
