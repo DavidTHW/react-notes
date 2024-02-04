@@ -12,6 +12,10 @@ const mockUser = [
 		"password": "challengeyoumusthmm?"
 	},
     {
+		"username": "obiwan@jedicouncil.com",
+		"password": "ihavethehighground"
+	},
+    {
 		"username": "tester",
 		"password": "123"
     },

@@ -1,6 +1,6 @@
 import React , {useState, useEffect} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 //this is just mocking response 
 import data from '../mock/mockUser'
 import { user , authState} from '../Slices/Auth';
@@ -8,37 +8,43 @@ import { user , authState} from '../Slices/Auth';
 const Login = () => {
 
   const auth = useSelector((state) => state.auth.authState)
-  console.log(auth)
+  // console.log(auth)
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [username , setUsername] = useState('')
   const [password , setPassword] = useState('');
-  const [success, setSuccess] = useState(false)
+  const [success , setSuccess] = useState()
+  const[ warn , setWarn] = useState('')
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    if (username && password) {
+      const found = data.find((user) => user.username === username && user.password === password)
+      if (found) {
+        //no token here, just pass true
+        localStorage.setItem('userToken' , JSON.stringify({'auth' : true , 'username' : username}))
+        dispatch(authState(true))
+        setSuccess(true)
+        setWarn('')
+     } else {
+       dispatch(authState(false))
+       setSuccess(false)
+       setWarn('invalid username or password')
+     }
+   }
     dispatch(user(username))
     setUsername('')
     setPassword('')
   }
 
   useEffect(()=> {
-    //just making a mock response to simulate logged in state by getting a 'response' , ideally we should also use a unique id instead of username
-    if (username && password) {
-     const found = data.find((user) => user.username === username && user.password === password)
-     if (found) {
-      //  dispatch(authState(true))
-       //no token here, just pass true
-       localStorage.setItem('userToken' , JSON.stringify({'auth' : true , 'username' : username}))
-    } else {
-      dispatch(authState(false))
+    if (success) {
+      navigate("/notes")
     }
-    setSuccess(true)
-    } else {
-      //simulate an error in login
-      setSuccess(false)
-    }
-  },[username, password])
+  },[success])
+
+  console.log(success)
+ 
 
   return (
     <div>
@@ -49,7 +55,9 @@ const Login = () => {
       <input type={'password'} id='password' value={password} required onChange={(e) => setPassword(e.target.value) }/>
       <button>Sign In</button>
       </form>
+      <div>{warn}</div>
     </div>
+    
   )
 }
 
