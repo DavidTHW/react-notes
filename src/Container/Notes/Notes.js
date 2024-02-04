@@ -16,7 +16,6 @@ const Notes = () => {
   const auth = useSelector((state) => state.auth)
   const [content , setContent] = useState('')
   const [title , setTitle] = useState('')
-  const [show, setShow] = useState(false)
 
 const handleAddNotes = () => {
   // add post api here for full code

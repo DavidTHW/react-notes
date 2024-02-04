@@ -3,13 +3,10 @@ import React , {useState} from 'react'
 const NoteList = ({note , handleDeleteNotes}) => {
   const [show, setShow] = useState({})
 
-  console.log(show)
   const handleOpen =(e , idx)=> {
-    console.log(e , 'e' , idx, 'idx')
    setShow({...show, [idx]:true})
   }
   const handleClose =(e , idx)=> {
-    console.log(e , 'e' , idx, 'idx')
    setShow({...show, [idx]:false})
   }
 
@@ -25,8 +22,8 @@ const NoteList = ({note , handleDeleteNotes}) => {
          <>
         <h2>Content :</h2>
         <div>{i.content}</div>
-        <button onClick={()=> handleDeleteNotes(i.id)}>delete note</button>
         </> ) :  null}
+        <button onClick={()=> handleDeleteNotes(i.id)}>delete note</button>
         <div key={idx}>
         {!show[idx] ? 
         <button onClick={(e)=> handleOpen(e,idx)}> show details </button> : 
