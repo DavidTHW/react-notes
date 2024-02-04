@@ -1,9 +1,9 @@
-import React , {useState, useEffect} from 'react'
+import React , {useState, useEffect , Suspense} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom'
 //this is just mocking response 
-import data from '../mock/mockUser'
-import { user , authState} from '../Slices/Auth';
+import data from '../../mock/mockUser'
+import { user , authState} from '../../Slices/AuthSlice';
 
 const Login = () => {
 
@@ -39,13 +39,10 @@ const Login = () => {
 
   useEffect(()=> {
     if (success) {
-      navigate("/notes")
+      navigate("/notes" , {replace: true})
     }
   },[success])
-
-  console.log(success)
  
-
   return (
     <div>
       <form onSubmit={handleSubmit}>

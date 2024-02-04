@@ -1,9 +1,12 @@
-import React, { useEffect , useState} from 'react'
+import React, { Suspense, useEffect , useState, lazy} from 'react'
 import { useSelector , useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import noteData from "../mock/mockNotes"
-import { addNote , postNotes , deleteNotes} from '../Slices/NotesSlice'
+import noteData from "../../mock/mockNotes"
+import { addNote , postNotes , deleteNotes} from '../../Slices/NotesSlice'
 import { nanoid } from 'nanoid'
+import './Notes.css'
+
+// const NotesList = lazy(()=> import('./NotesList'))
 
 const Notes = () => {
 
@@ -22,6 +25,7 @@ const handleAddNotes = () => {
     title : title ,
     content : content,
   }))
+  setTitle('')
   setContent('')
 }
 
@@ -51,28 +55,28 @@ if (auth.authState === true) {
     <div>
     {noteRedux?.notes?.length > 0 ? (noteRedux && noteRedux?.notes?.map((i , idx) =>{
       return (
-      <div key={idx}>
-        <label>Title :</label>
+      <div key={idx} className='note'>
+        <h2>Title :</h2>
         <div>{i.title}</div>
-        <label>Content :</label>
+        <h2>Content :</h2>
         <div>{i.content}</div>
         <button onClick={()=> handleDeleteNotes(i.id)}>delete note</button>
       </div> 
-      
       )
     })) : (<div>no notes found , add your notes</div>)
-  } 
+  }
 
-    {/* {noteRedux?.notes.length < 1 ? () : null} */}
+  {/* <Suspense fallback={<>...loading</>}>
+    <NotesList/>
+  </Suspense> */}
 
     <div>
-    <label>Add Note</label>
+    <h2>Add Note</h2>
     <label>Add Note Title :</label>
     <input type={'text'} id={'content'} value={content} onChange={(e)=> setContent(e.target.value)}/>
     <label>Add Note Content :</label>
     <input type={'text'} id={'title'} value={title} onChange={(e)=> setTitle(e.target.value)}/>
     <button onClick={handleAddNotes}>Submit</button>
- 
     </div>
       <button onClick={logout}>log out</button>
     </div>

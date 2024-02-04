@@ -1,8 +1,8 @@
-import {Routes, Route, createBrowserRouter, BrowserRouter } from 'react-router-dom' 
+import {Routes, Route} from 'react-router-dom' 
 import PrivateRoutes from "./PrivateRoutes"
-import Notes from './Container/Notes'
+import Notes from './Container/Notes/Notes'
 import NotFound from './Container/NotFound'
-import Login from './Container/Login'
+import Login from './Container/Login/Login'
 
 const PageRouter = () => {
 return (

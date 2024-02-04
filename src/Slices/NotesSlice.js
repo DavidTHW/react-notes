@@ -16,8 +16,8 @@ const Notes = createSlice({
       },
       deleteNotes : (state , action) => {
          const {id} = action.payload
-         const deleted = state.notes.find(notes => notes.id === id)
-         state.notes.pop(deleted)
+         const deleted = state.notes.findIndex(notes => notes.id === id)
+         state.notes.splice(deleted , 1)
         },
       }
 });
