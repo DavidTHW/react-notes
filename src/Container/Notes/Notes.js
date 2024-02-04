@@ -33,8 +33,6 @@ const handleDeleteNotes = (id) => {
   //api call to remove post and get updated post list
   dispatch(deleteNotes({id : id}))
 }
-//user's notes
-console.log(noteRedux)
 
 const logout = () => {
   localStorage.removeItem('userToken')

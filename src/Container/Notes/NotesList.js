@@ -1,9 +1,9 @@
 import React from 'react'
 
-const noteList = () => {
+const NoteList = () => {
   return (
-    <div>noteList</div>
+    <div>NoteList</div>
   )
 }
 
-export default noteList
+export default NoteList

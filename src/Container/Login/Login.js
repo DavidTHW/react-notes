@@ -8,7 +8,6 @@ import { user , authState} from '../../Slices/AuthSlice';
 const Login = () => {
 
   const auth = useSelector((state) => state.auth.authState)
-  // console.log(auth)
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [username , setUsername] = useState('')
