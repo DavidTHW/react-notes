@@ -27,21 +27,3 @@ jobs:
         npm install
         grunt
 
-                    - name: Stoat Action
-  # You may pin to the exact commit or the version.
-  # uses: stoat-dev/stoat-action@14f3c5d14004e02bd180fa878da1265c53cf3fe2
-  uses: stoat-dev/stoat-action@v0.0.12
-  with:
-    # GITHUB_TOKEN or a repo scoped PAT.
-    token: # optional, default is ${{ github.token }}
-    # github pull request branch name
-    pr_branch_name: # optional, default is ${{ github.head_ref || github.ref_name }}
-    # the commit pushed, not the commit post merge like github.sha
-    actual_sha: # optional, default is ${{ github.event.pull_request.head.sha || github.sha }}
-    # A unique number for each attempt of a particular workflow run in a repository. This number begins at 1 for the workflow run's first attempt, and increments with each re-run.
-    run_attempt: # optional, default is ${{ github.run_attempt }}
-    # current job status
-    job_status: # optional, default is ${{ job.status }}
-    # Matrix of the current run
-    run_matrix: # optional, default is ${{ toJSON(matrix) }}
-          
