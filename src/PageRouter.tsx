@@ -10,7 +10,7 @@ return (
         <Route element={<PrivateRoutes/>}>
         <Route path='/notes' element={<Notes/>}/>
         </Route>
-        <Route path='/' element={<Login/>}/>
+        <Route path='/react-notes' element={<Login/>}/>
         <Route path='*' element={<NotFound/>}/>
     </Routes>
 )}
