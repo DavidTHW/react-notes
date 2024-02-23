@@ -1,6 +1,4 @@
-# React Assignment
-
-Welcome candidate to Agridence React frontend challenge! The goal of this assignment is to test your knowledge and practices that you have on a day-to-day basis.
+# React Notes
 
 ## How to Start?
 Import the project as a private repo https://github.com/new/import 
@@ -37,16 +35,18 @@ start the project using `npm start`
 
   done with redux-toolkit , react-router-6 in functional components, nanoid to generate random ids (for delete and add post)
 
-## Submission
-go to your private repo settings and add the reviewers as the collaborators
-![add-collaborators](images/add-collaborators.png)
+  # TODOs and enhancements
+  1 - When deployed, if a user logs out, the user is not redirected to the login page unlike on local. (probably an issue where useNavigate hook not supported) 
+  Possible solution : add a redirect link / troubleshoot the useNavigate hook
 
+  2 - Possible bug when user is looking at the notes, the content is the title and vice versa
+  Possible solution : error when passing prop. will be fixed 
+  FIXED
 
-## React assignment reviewers
-- [bebarle](https://github.com/bebarle)
-- [sruthiganesh-HC](https://github.com/sruthiganesh-HC)
-- [weikiat87](https://github.com/weikiat87)
-- [abhi-agridence](https://github.com/abhi-agridence)
+  3 - When user refreshes, immediately directed to github's 404. is there a way to catch this behaviour (from auth-ed to not auth-ed) and reirect to my 404 page. 
+  Possible solution - need more information useNavigate hook properties and behaviours
+
+  4 - CSS to be added , planning on adding tailwind package for styling
 
 
 # Getting Started with Create React App

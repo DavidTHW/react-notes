@@ -62,9 +62,9 @@ if (auth.authState === true) {
     <div>
     <h2>Add Note</h2>
     <label>Add Note Title :</label>
-    <input type={'text'} id={'content'} value={content} onChange={(e)=> setContent(e.target.value)}/>
-    <label>Add Note Content :</label>
     <input type={'text'} id={'title'} value={title} onChange={(e)=> setTitle(e.target.value)}/>
+    <label>Add Note Content :</label>
+    <input type={'text'} id={'content'} value={content} onChange={(e)=> setContent(e.target.value)}/>
     <button onClick={handleAddNotes}>Submit</button>
     </div>
       <button onClick={logout}>log out</button>
