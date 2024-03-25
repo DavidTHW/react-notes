@@ -3,10 +3,7 @@
 ## How to Start?
 Import the project as a private repo https://github.com/new/import 
 
-![import-project](images/import-project.png)
-
 Clone your private repo into your folder
-![clone-local](images/clone-local.png)
 
 start the project using `npm start`
 
