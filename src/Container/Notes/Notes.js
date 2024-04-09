@@ -1,6 +1,7 @@
 import React, { Suspense, useEffect , useState, lazy} from 'react'
 import { useSelector , useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+//mock data
 import noteData from "../../mock/mockNotes"
 import { addNote , postNotes , deleteNotes} from '../../Slices/NotesSlice'
 import { nanoid } from 'nanoid'

@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 //this is just mocking response 
 import data from '../../mock/mockUser'
 import { user , authState} from '../../Slices/AuthSlice';
+import './Login.css';
 
 const Login = () => {
 
@@ -43,13 +44,26 @@ const Login = () => {
   },[success])
  
   return (
-    <div>
+    <div className='login-container'>
       <form onSubmit={handleSubmit}>
+      
+      <div className='form-fields'>
       <label>Username</label>
+      </div>
+      <div className='form-fields'>
       <input type={'text'} id='username' value={username} required onChange={(e)=> setUsername(e.target.value) }  />
+      </div>
+     
+      <div className='form-fields'>
+      <div>  
       <label>Password</label>
+      </div>
       <input type={'password'} id='password' value={password} required onChange={(e) => setPassword(e.target.value) }/>
+      </div>
+     
+      <div className='form-button'>
       <button>Sign In</button>
+      </div>
       </form>
       <div>{warn}</div>
     </div>
