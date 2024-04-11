@@ -60,15 +60,20 @@ if (auth.authState === true) {
      : (<div>no notes found , add your notes</div>)}
     </div> 
 
-    <form>
+    <div className='create-notes-container'>
     <h2>Create Notes</h2>
     <label>Add Note Title :</label>
-    <input type={'text'} id={'title'} value={title} onChange={(e)=> setTitle(e.target.value)} />
+    <input type='text' id={'title'} value={title} onChange={(e)=> setTitle(e.target.value)} />
     <label>Add Note Content :</label>
-    <input type={'text'} id={'content'} value={content} onChange={(e)=> setContent(e.target.value)} />
+    {/* <input type={'text'} id={'content'} value={content} onChange={(e)=> setContent(e.target.value)} /> */}
+    <textarea rows={4} id={'content'} value={content} onChange={(e)=>setContent(e.target.value)} />
+    <div className='submit-btn'>
     <button onClick={handleAddNotes}>Submit</button>
-    </form>
+    </div>
+    </div>
+    <div>
     <button onClick={logout}>log out</button>
+    </div>
     </div>
   )
 }
