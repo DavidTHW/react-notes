@@ -2,3 +2,9 @@
     border: 1px solid black;
     margin: 2px;
 }
+
+.notes-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}

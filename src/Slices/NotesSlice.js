@@ -9,7 +9,7 @@ const Notes = createSlice({
   name: 'notes',
   initialState,
   reducers: {
-      addNote : (state,action) => {
+      getNotes : (state,action) => {
           state.notes = action.payload
       },
       postNotes : (state ,action) => {
@@ -23,6 +23,6 @@ const Notes = createSlice({
       }
 });
 
-export const {addNote , postNotes , deleteNotes} = Notes.actions
+export const {getNotes , postNotes , deleteNotes} = Notes.actions
 
 export default Notes.reducer

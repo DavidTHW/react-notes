@@ -3,7 +3,7 @@ import { useSelector , useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 //mock data
 import noteData from "../../mock/mockNotes"
-import { addNote , postNotes , deleteNotes} from '../../Slices/NotesSlice'
+import { getNotes , postNotes , deleteNotes} from '../../Slices/NotesSlice'
 import { nanoid } from 'nanoid'
 import './Notes.css'
 
@@ -37,14 +37,14 @@ const handleDeleteNotes = (id) => {
 
 const logout = () => {
   localStorage.removeItem('userToken')
-  navigate("/")
+  navigate("/react-notes")
 }
 
 useEffect(()=> {
 //populating the default state  
 if (auth.authState === true) {
   const userNotes = noteData.filter((i) => i.username === auth.username);
-  dispatch(addNote(userNotes))
+  dispatch(getNotes(userNotes))
 }
 } , [])
 
@@ -60,15 +60,15 @@ if (auth.authState === true) {
      : (<div>no notes found , add your notes</div>)}
     </div> 
 
-    <div>
-    <h2>Add Note</h2>
+    <form>
+    <h2>Create Notes</h2>
     <label>Add Note Title :</label>
-    <input type={'text'} id={'title'} value={title} onChange={(e)=> setTitle(e.target.value)}/>
+    <input type={'text'} id={'title'} value={title} onChange={(e)=> setTitle(e.target.value)} />
     <label>Add Note Content :</label>
-    <input type={'text'} id={'content'} value={content} onChange={(e)=> setContent(e.target.value)}/>
+    <input type={'text'} id={'content'} value={content} onChange={(e)=> setContent(e.target.value)} />
     <button onClick={handleAddNotes}>Submit</button>
-    </div>
-      <button onClick={logout}>log out</button>
+    </form>
+    <button onClick={logout}>log out</button>
     </div>
   )
 }
